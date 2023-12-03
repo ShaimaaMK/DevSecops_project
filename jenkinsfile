@@ -1,0 +1,10 @@
+pipeline{
+   agent any
+   stages {
+     stage ('git checkout'){
+       steps{
+         git url: 'https://github.com/ShaimaaMK/DevSecops_project.git', branch: 'master'
+       }
+     }
+   }
+}
