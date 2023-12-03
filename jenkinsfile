@@ -6,5 +6,27 @@ pipeline{
          git url: 'https://github.com/ShaimaaMK/DevSecops_project.git', branch: 'master'
        }
      }
+
+      stage ('unit testing') {
+         steps {
+            script {
+               sh 'mvn test'
+                }  
+              }
+           }
+           stage ('integration testing') {
+              steps{
+                  script{
+                      sh 'mvn verify -DskipUnitTests'
+                  }
+              }
+           }
+           stage ('checkstyle testing') {
+              steps{
+                  script{
+                      sh 'mvn checkstyle:check'
+                  }
+              }
+     }
    }
 }
