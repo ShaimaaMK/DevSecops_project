@@ -1,21 +1,21 @@
 version: '3.8'
 services:
-  smartcity-app:
-    build: .
-    container_name: smartcity_app
-    restart: always
-    ports:
-      - 8080:8080
-    environment:
-      DATABASE_URI: jdbc:mysql://mysqldb:3306/smartcity_project?createDatabaseIfNotExist=true
-      DATABASE_USER: root
-      DATABASE_PASSWORD: ez7mz
-      MAIL_HOST: maildev
-      MAIL_PORT: 1025
-    depends_on:
-      - mysqldb
-    networks:
-      - smartcity-network
+  #smartcity-app:
+   # build: .
+    #container_name: smartcity_app
+    #restart: always
+    #ports:
+     # - 8080:8080
+    #environment:
+     # DATABASE_URI: jdbc:mysql://mysqldb:3306/smartcity_project?createDatabaseIfNotExist=true
+      #DATABASE_USER: root
+      #DATABASE_PASSWORD: ez7mz
+      #MAIL_HOST: maildev
+      #MAIL_PORT: 1025
+    #depends_on:
+     # - mysqldb
+    #networks:
+     # - smartcity-network
 
   mysqldb:
     platform: linux/x86_64
@@ -31,15 +31,15 @@ services:
     networks:
       - smartcity-network
 
-  maildev:
-    image: maildev/maildev
-    container_name: maildev
-    ports:
-      - 1080:1080
-      - 1025:1025
-    networks:
-      - smartcity-network
-networks:
-  smartcity-network:
-volumes:
-  mysql:
+  #maildev:
+   # image: maildev/maildev
+    #container_name: maildev
+    #ports:
+     # - 1080:1080
+      #- 1025:1025
+    #networks:
+     # - smartcity-network
+#networks:
+ # smartcity-network:
+#volumes:
+ # mysql:
