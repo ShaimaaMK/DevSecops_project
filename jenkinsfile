@@ -17,13 +17,14 @@ pipeline{
 
      stage ('unit testing') {
     environment {
-        DB_HOST = 'mysqldb'
-        DB_USER = 'root'
-        DB_PASS = 'ez7mz'
+        DATABASE_HOST = 'mysqldb'
+        DATABASE_USER = 'root'
+        DATABASE_PASSWORD = 'ez7mz'
+        DATABASE_URI = 'jdbc:mysql://mysqldb:3306/smartcity_project?createDatabaseIfNotExist=true'
     }
     steps {
         script {
-            sh 'mvn test -Ddb.host=${DB_HOST} -Ddb.user=${DB_USER} -Ddb.pass=${DB_PASS}'
+            sh 'mvn test -Ddb.host=${DATABASE_HOST} -Ddb.user=${DATABASE_USER} -Ddb.pass=${DATABASE_PASSWORD}'
         }
     }
 }
