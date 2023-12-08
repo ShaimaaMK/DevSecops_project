@@ -1,13 +1,13 @@
 pipeline{
    agent any
-   //environment {
-     //   MAIL_HOST = 'localhost'
-       // MAIL_PORT = '1025'
-        //DATABASE_USER = 'root'
-        //DATABASE_PASSWORD = 'ez7mz'
-        //DATABASE_URI = 'jdbc:mysql://localhost:3306/smartcity?createDatabaseIfNotExist=true'
+   environment {
+        MAIL_HOST = 'localhost'
+        MAIL_PORT = '1025'
+        DATABASE_USER = 'root'
+        DATABASE_PASSWORD = 'ez7mz'
+        DATABASE_URI = 'jdbc:mysql://mysqldb:3306/smartcity_project?createDatabaseIfNotExist=true'
 
-    //}
+    }
    stages {
      stage ('git checkout'){
        steps{
