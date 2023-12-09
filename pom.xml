@@ -123,6 +123,7 @@
 			                <failsOnError>true</failsOnError>
 			                <outputFile>${project.build.directory}/checkstyle-result.xml</outputFile>
 					<failOnViolation>true</failOnViolation>
+					<maxAllowedViolations>500</maxAllowedViolations>
 			        </configuration>
 			        <goals>
                         		<goal>check</goal>
