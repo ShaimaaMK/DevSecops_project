@@ -27,6 +27,11 @@ pipeline{
             sh 'mvn test -Ddb.host=${DATABASE_HOST} -Ddb.user=${DATABASE_USER} -Ddb.pass=${DATABASE_PASSWORD}'
         }
     }
+    post {
+         always {
+             junit '**/target/surefire-reports/*.xml'
+                }
+            }
 }
 
            stage ('integration testing') {
@@ -42,6 +47,14 @@ pipeline{
                       sh 'mvn checkstyle:check'
                   }
               }
+              post {
+                always {
+                    checkstyle pattern: '**/checkstyle-result.xml'
+                }
+            }
+
      }
+
+
    }
 }
